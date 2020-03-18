@@ -28,20 +28,21 @@ def merge( arrA, arrB ):
 # TO-DO: implement the Merge Sort function below USING RECURSION
 #Split list function
 def split(a_list):
-    if len(a_list) == 1:
+    if len(a_list) == 1:#Checks if the list can be split
         pass
     else:
-        half = len(a_list)//2
-        return a_list[ 0 :half], a_list[half:]
+        half = len(a_list)//2 #Splits in half
+        return a_list[ 0 :half], a_list[half:] #Returns both halves
+
+        
 def merge_sort( arr ):
-    # elements = len(arr) #checks for elements in array
-    # sorted_list = []
     
-    if len(arr) > 1:
-        A, B = split(arr)
-        left = merge_sort(A)
-        right = merge_sort(B)
-        arr = merge(left, right)
+    
+    if len(arr) > 1:#checks for elements in the array
+        A, B = split(arr)#Uses split function to split the array
+        left = merge_sort(A)#Splits first half
+        right = merge_sort(B)#Splits second half
+        arr = merge(left, right)#Merges the two halves
     
 
     
@@ -49,7 +50,7 @@ def merge_sort( arr ):
 
     return arr
 
-print(merge_sort([1, 5, 8, 4, 2, 9, 6, 0, 3, 7]))
+# print(merge_sort([1, 5, 8, 4, 2, 9, 6, 0, 3, 7]))
 # STRETCH: implement an in-place merge sort algorithm
 def merge_in_place(arr, start, mid, end):
     # TO-DO
